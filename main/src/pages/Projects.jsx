@@ -25,7 +25,7 @@ const Projects = () => {
     {
       id: 4,
       title: 'Theme Switcher',
-      description: 'Dark/light toggle using React Context — kinda overkill but good for learning.',
+      description: 'Dark/light toggle using React Context — It's also the one you're viewing rn',
       link: '#',
     },
     // 
