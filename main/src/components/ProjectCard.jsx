@@ -1,45 +1,24 @@
-    import React from 'react';
-    import { Card, CardContent, Typography, Button, CardActions } from '@mui/material';
+import React from 'react';
+import { Chip } from '@mui/material';
 
-    const ProjectCard = ({ title, description, link }) => {
-      return (
-        <Card sx={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          p: 2,
-          boxShadow: 3,
-          transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-          '&:hover': {
-            transform: 'translateY(-5px)',
-            boxShadow: 6,
-          }
-        }}>
-          <CardContent>
-            <Typography variant="h5" component="div" gutterBottom sx={{ fontWeight: 'bold' }}>
-              {title}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {description}
-            </Typography>
-          </CardContent>
-          <CardActions sx={{ justifyContent: 'flex-end' }}>
-            {link && (
-              <Button
-                size="small"
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="outlined"
-                color="primary"
-              >
-                View Project
-              </Button>
-            )}
-          </CardActions>
-        </Card>
-      );
-    };
+const SkillChip = ({ name }) => {
+  return (
+    <Chip
+      label={name}
+      color="primary"
+      variant="outlined"
+      sx={{
+        margin: 4,
+        fontWeight: 500,
+        backgroundColor: 'rgba(33, 150, 243, 0.08)',
+        borderColor: '#2196f3',
+        '&:hover': {
+          backgroundColor: 'rgba(33, 150, 243, 0.15)',
+          boxShadow: '0px 2px 4px rgba(0,0,0,0.1)',
+        },
+      }}
+    />
+  );
+};
 
-    export default ProjectCard;
+export default SkillChip;
