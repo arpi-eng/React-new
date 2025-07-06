@@ -3,74 +3,55 @@ import { Typography, Container, Grid } from '@mui/material';
 import ProjectCard from '../components/ProjectCard';
 
 const Projects = () => {
-  const projectItems = [  
+  const projects = [
     {
       id: 1,
-      title: 'Interactive Todo List',
-      description: 'Basic CRUD with hooks – just a classic practice app.',
+      title: 'Simple Counter App',
+      description: 'My very first React app, learning `useState` for basic increment/decrement.',
       link: '#',
     },
     {
       id: 2,
-      title: 'Weather Dashboard',
-      description: 'Fake weather data from a dummy API. Just wanted to test fetch + loading states.',
+      title: 'Basic Calculator',
+      description: 'A simple calculator to practice state management and event handling.',
       link: '#',
     },
     {
       id: 3,
-      title: 'Quiz Application',
-      description: 'Multiple choice quiz, tracks score. A bit hacky but works.',
+      title: 'To-Do List with Filters',
+      description: 'Building a classic to-do app, focusing on component communication and array manipulation.',
       link: '#',
     },
     {
       id: 4,
-      title: 'Theme Switcher',
-      description: 'Dark/light toggle using React Context — It's also the one you're viewing rn',
+      title: 'Theme Switcher Demo',
+      description: 'Exploring React Context to implement a simple dark/light mode toggle.', // Corrected this line
       link: '#',
     },
-    // 
   ];
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 9 }}>
-      {/* Page title – tried using h2 but it looked too small */}
-      <Typography 
-        variant="h3" 
-        component="h1" 
-        gutterBottom 
-        sx={{ textAlign: 'center', fontWeight: 600 }}
-      >
+    <Container maxWidth="lg" sx={{ mt: 8 }}>
+      <Typography variant="h3" component="h1" gutterBottom sx={{ textAlign: 'center', fontWeight: 'bold' }}>
         My Projects
       </Typography>
-
-      {/* Introductory line – might remove this later */}
-      <Typography 
-        variant="h6" 
-        color="text.secondary" 
-        sx={{ textAlign: 'center', mb: 6 }}
-      >
-        These are mostly experiments in React — different patterns, state, and some UI bits.
+      <Typography variant="h6" color="text.secondary" sx={{ textAlign: 'center', mb: 5 }}>
+        Here are some basic projects showcasing different React concepts.
       </Typography>
 
       <Grid container spacing={4}>
-        {projectItems.map((proj) => (
-          <Grid item xs={12} sm={6} md={4} key={proj.id}>
-            <ProjectCard {...proj} />
+        {projects.map((projectItem) => (
+          <Grid item xs={12} sm={6} md={4} key={projectItem.id}>
+            <ProjectCard {...projectItem} />
           </Grid>
         ))}
       </Grid>
-
-      
-      <Typography 
-        variant="caption" 
-        display="block" 
-        sx={{ mt: 5, textAlign: 'center', fontStyle: 'italic' }}
-      >
-        Built with reusable components and map(). Simple, but effective.
+      <Typography variant="caption" display="block" sx={{ mt: 4, textAlign: 'center', fontStyle: 'italic' }}>
+        (This page demonstrates reusable components and mapping over data.)
       </Typography>
+      {/* TODO: Consider adding a simple search/filter functionality here */}
     </Container>
   );
 };
 
 export default Projects;
-
