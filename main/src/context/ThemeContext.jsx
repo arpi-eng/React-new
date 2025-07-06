@@ -1,72 +1,91 @@
-    import React, { createContext, useState, useContext } from 'react';
-    import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import React, { createContext, useState, useContext } from 'react';
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 
-    const ThemeContext = createContext();
+const ThemeContext = createContext();
 
-    export const ThemeContextProvider = ({ children }) => {
-      const [mode, setMode] = useState('light');
+export const ThemeContextProvider = ({ children }) => {
+  const [currentThemeMode, setCurrentThemeMode] = useState('light');
 
-      const toggleTheme = () => {
-        setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
-      };
+  const handleThemeSwitch = () => {
+    setCurrentThemeMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'));
+  };
 
-      const theme = createTheme({
-        palette: {
-          mode: mode,
-          primary: {
-            main: '#2196f3',
-          },
-          secondary: {
-            main: '#ff9800',
-          },
-          background: {
-            default: mode === 'light' ? '#f4f6f8' : '#121212',
-            paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+  
+  const theme = createTheme({
+    typography: {
+      fontFamily: 'Inter, sans-serif',
+      fontSize: 15, 
+      h6: {
+        fontWeight: 600, 
+      },
+    },
+    palette: {
+      mode: currentThemeMode, 
+      primary: {
+        main: '#3f51b5', 
+        light: '#757de8',
+      },
+      secondary: {
+        main: '#f50057', 
+      },
+      background: {
+        paper: currentThemeMode === 'light' ? '#ffffff' : '#303030', 
+        default: currentThemeMode === 'light' ? '#f0f2f5' : '#1a1a1a', 
+      },
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: 7, 
+            textTransform: 'none', 
           },
         },
-        typography: {
-          fontFamily: 'Inter, sans-serif',
-        },
-        components: {
-          MuiButton: {
-            styleOverrides: {
-              root: {
-                borderRadius: 8,
-              },
-            },
-          },
-          MuiCard: {
-            styleOverrides: {
-              root: {
-                borderRadius: 12,
-              },
-            },
-          },
-          MuiAppBar: {
-            styleOverrides: {
-              root: {
-                borderRadius: 0,
-              },
-            },
-          },
-          MuiChip: {
-            styleOverrides: {
-              root: {
-                borderRadius: 8,
-              },
-            },
+      },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            borderRadius: 11, 
+            padding: '16px', 
           },
         },
-      });
+      },
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            borderRadius: 0,
+            boxShadow: '0px 3px 6px rgba(0,0,0,0.15)', 
+          },
+        },
+      },
+      MuiChip: {
+        styleOverrides: {
+          root: {
+            borderRadius: 7, 
+            fontWeight: 500, 
+          },
+        },
+      },
+      
+      MuiContainer: {
+        styleOverrides: {
+          root: {
+            paddingTop: '20px',
+            paddingBottom: '20px',
+          },
+        },
+      },
+    },
+  });
 
-      return (
-        <ThemeContext.Provider value={{ mode, toggleTheme }}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
-        </ThemeContext.Provider>
-      );
-    };
+  return (
+    <ThemeContext.Provider value={{ mode: currentThemeMode, toggleTheme: handleThemeSwitch }}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </ThemeContext.Provider>
+  );
+};
 
-    export const useThemeContext = () => useContext(ThemeContext);
+export const useThemeContext = () => useContext(ThemeContext);
