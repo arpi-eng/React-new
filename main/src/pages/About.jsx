@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
 import { Typography, Container, Box, Chip } from '@mui/material';
 import SkillChip from '../components/SkillChip';
-import '../index.css'; // Make sure to import your global CSS
+import '../index.css';
 
 const About = () => {
   useEffect(() => {
-    // Changed the title to remove "My Dev Journey"
     document.title = 'About Me';
 
     return () => {
-      // You can set a default title here if you want, e.g., 'My Portfolio'
       document.title = 'My Portfolio';
     };
   }, []);
@@ -55,3 +53,4 @@ const About = () => {
 };
 
 export default About;
+
