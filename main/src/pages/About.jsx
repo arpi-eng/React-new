@@ -23,9 +23,7 @@ const About = () => {
       </Typography>
       <Box sx={{ mt: 4, p: 3, border: '1px solid', borderColor: 'divider', borderRadius: 2 }} className="main-content-box">
         <Typography paragraph variant="body1">
-          Hello! I'm a passionate student developer at **[Your College Name]**, constantly exploring the world of web development.
-          My journey with React has been exciting, focusing on building intuitive and efficient user interfaces.
-          I'm particularly interested in how components, hooks, and state management come together to create scalable applications.
+          Hello! I'm aFirst-year Computer Science student at LNCTE College with a passion for software development, UI/UX design, and cloud computing. I have hands-on experience with Google Cloud Platform (GCP) and a keen eye for user-centered design, having contributed to the UI of the LNUniverse website. I am proficient in Java & React.js and am eager to collaborate on innovative projects that merge technology and creative design. Let's connect!
         </Typography>
         <Typography paragraph variant="body1">
           This website is a small demonstration of my understanding of core React concepts,
