@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
 
-import { ThemeContextProvider } from './context/ThemeContext'; // Corrected import path
+import { ThemeContextProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -24,3 +24,5 @@ const App = () => {
     </ThemeContextProvider>
   );
 };
+
+export default App;
